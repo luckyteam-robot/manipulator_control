@@ -1,7 +1,7 @@
 ######## 统筹所有代码，实现目标功能 ########
 from transformation import *
 from inverse import *
-from tcptransmit import *
+from tcpcommunication import *
 s = inverse()
 # 根据项目流程，链接各模块函数代码
 
