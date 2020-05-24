@@ -29,3 +29,32 @@ def inverse():
 
 s = inverse()
 print(s)
+
+
+
+####计算空间角的
+def SpaceAngle(coordinate):
+    """
+    计算空间角
+    当需要指向目标位置（此时小机械臂末端根本无法到达该目标点）时，就需计算相对的空间姿态角。
+    :param coordinate: 目标物体的三维坐标
+    :return: theta：相对空间角
+    """
+    L1 = 10
+    d = 2
+    x = coordinate[0]
+    y = coordinate[1]
+    z = coordinate[2]
+    z1 = z - L1
+    #x1 = x + dsin(theta1)
+    #y1 = y - dcos(theta1)
+    #tan(theta1) = y1/x1
+    #tan(theta2) = z1/sqrt(x1^2+y1^2)
+    phi = math.atan(y/x)
+    theta1 = math.asin(-d/sqrt(math.pow(x,2) + math.pow(y,2))) + phi
+    theta2 = math.atan(z1/sqrt(math.pow(x+d*sin(theta1),2) + math.pow(y-d*cos(theta1),2)))
+    return [theta1,theta2]
+
+s = SpaceAngle([1,10,30])
+print("ssss")
+print(s)
