@@ -1,25 +1,71 @@
 ######### 编辑图形界面 ########
-import tkinter
-from tkinter import *
-top = tkinter.Tk()
-top.title("机器人控制界面")
-top.geometry('500x500+10+10')
-top.update()
-lab1 = tkinter.Label(top,text="机器人控制显示",bg="green",fg="red",font=('黑体',20))
-lab1.pack(side=TOP)
-###当前大机械臂位置，当前小机械臂位置，发送位置数据，
-####需分成2个区域，左侧大机械臂控制显示界面，右侧小机械臂控制显示界面
-fm = tkinter.Frame(top)
-fmlab1 = tkinter.Label(fm,text="kuangjia",bg="red")
-fmlab1.pack()
-fm.pack(side=RIGHT)
-bt1 = tkinter.Button(top, text="发送")
-bt1.pack(side=LEFT)
-bt2 = tkinter.Button(top, text="停止")
-bt2.pack()
+# import tkinter
+# from tkinter import *
+# top = tkinter.Tk()
+# top.title("机器人控制界面")
+# top.geometry('500x500+10+10')
+# canvas = tkinter.Canvas(top,height=500,width=500)
+# image = tkinter.PhotoImage(file="opi.gif")
+# top.canvas.create_image(0,0, anchor='nw', image=image)#将图片置于画布上
+# canvas.pack()
+# top.update()
+# lab1 = tkinter.Label(top,text="机器人控制显示",bg="green",fg="red",font=('黑体',20))
+# lab1.pack(side=TOP)
+# ###当前大机械臂位置，当前小机械臂位置，发送位置数据，
+# ####需分成2个区域，左侧大机械臂控制显示界面，右侧小机械臂控制显示界面
+# fm = tkinter.Frame(top)
+# fmlab1 = tkinter.Label(fm,text="kuangjia",bg="red")
+# fmlab1.pack()
+# fm.pack(side=RIGHT)
+# bt1 = tkinter.Button(top, text="发送")
+# bt1.pack(side=LEFT)
+# bt2 = tkinter.Button(top, text="停止")
+# bt2.pack()
+#
+# # 进入消息循环
+# top.mainloop()
 
-# 进入消息循环
-top.mainloop()
+
+#试验
+import tkinter as tk
+from tkinter import *
+mainwin = tk.Tk()
+
+frame1 = tk.Frame(mainwin)
+fm1label = tk.Label(frame1,text="机械臂跟随系统控制界面",bg="red",font=('黑体',20))
+fm1label.pack()
+frame1.pack(side=TOP)
+
+#FRAME2
+frame2 = tk.Frame(mainwin)
+fm2left = tk.Frame(frame2)
+fm2right = tk.Frame(frame2)
+fm2left_top = tk.Frame(fm2left)
+fm2left_botton = tk.Frame(fm2left)
+fm2right_top = tk.Frame(fm2right)
+fm2right_botton = tk.Frame(fm2right)
+
+fm2left_toplab = tk.Label(fm2left_top,text="Small Robot Control")
+fm2left_toplab.pack(side=TOP)
+fm2left_top.pack(side=TOP)
+fm2left_bottonentry = tk.Entry(fm2left_botton)
+fm2left_bottonentry.pack()
+fm2left_botton.pack(side=BOTTOM)
+fm2left.pack(side=LEFT)
+
+fm2right_toplab = tk.Label(fm2right_top,text="Big Robot Control")
+fm2right_toplab.pack()
+fm2right_top.pack(side=TOP)
+fm2right_bottonentry = tk.Entry(fm2right_botton)
+fm2right_bottonentry.pack()
+fm2right_botton.pack(side=BOTTOM)
+fm2right.pack(side=RIGHT)
+
+frame2.pack(side=BOTTOM)
+
+
+
+mainwin.mainloop()
 
 
 

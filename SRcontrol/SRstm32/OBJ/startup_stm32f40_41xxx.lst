@@ -869,10 +869,11 @@ ARM Macro Assembler    Page 14
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
 erwork --depend=..\obj\startup_stm32f40_41xxx.d -o..\obj\startup_stm32f40_41xxx
-.o -IE:\robotprogram\robotcontrol2\USER\RTE -I"E:\keilarm works\Keil\STM32F4xx_
-DFP\1.0.8\Device\Include" -ID:\keilarm\ARM\CMSIS\Include --predefine="__EVAL SE
-TA 1" --predefine="__UVISION_VERSION SETA 514" --predefine="STM32F40_41xxx SETA
- 1" --list=..\obj\startup_stm32f40_41xxx.lst ..\CORE\startup_stm32f40_41xxx.s
+.o -IE:\GitHub\manipulator_control\SRcontrol\SRstm32\USER\RTE -I"E:\keilarm wor
+ks\Keil\STM32F4xx_DFP\1.0.8\Device\Include" -ID:\keilarm\ARM\CMSIS\Include --pr
+edefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 514" --predefine="S
+TM32F40_41xxx SETA 1" --list=..\obj\startup_stm32f40_41xxx.lst ..\CORE\startup_
+stm32f40_41xxx.s
 
 
 
