@@ -38,7 +38,6 @@ def transformSRendtoBRbase(Ps2obj,theta):
     theta1 = theta[0]
     theta2 = theta[1]
     #Ps2obj = mat([x,y,z,1]).T
-    print(Ps2obj)
     xsmallorg = 1
     ysmallorg = 1
     zsmallorg = 1
@@ -58,10 +57,10 @@ def transformSRendtoBRbase(Ps2obj,theta):
            [0,             0,       0,1]])
 
     Pb0obj = Tb0s0 * Ts0s1 * Ts1s2 * Ps2obj
-    print("output the conclusion:")
-    print(Pb0obj)
-    print("output the conclusion1:")
-    print(Pb0obj[0,0])
+    # print("output the conclusion:")
+    # print(Pb0obj)
+    # print("output the conclusion1:")
+    # print(Pb0obj[0,0])
     return Pb0obj
 
 #s = transformation()
@@ -102,7 +101,7 @@ def transformCam2SRend(Pcamobj):
     :param Pcamobj: 物体在相机坐标系下的坐标
     :return: Psrendobj:物体在机械臂末端坐标系下的坐标
     """
-    Psrendobj = [1,1,1,1]
+    Psrendobj = mat([1,1,1,1]).T
     return Psrendobj
 
 def transformSRend2SRbase(Psrendobj,theta):

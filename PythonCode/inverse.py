@@ -27,10 +27,6 @@ def inverse():
     print(theta2)
     return [theta1,theta2]
 
-s = inverse()
-print(s)
-
-
 
 ####计算空间角的
 def SpaceAngle(coordinate):
@@ -54,7 +50,3 @@ def SpaceAngle(coordinate):
     theta1 = math.asin(-d/sqrt(math.pow(x,2) + math.pow(y,2))) + phi
     theta2 = math.atan(z1/sqrt(math.pow(x+d*sin(theta1),2) + math.pow(y-d*cos(theta1),2)))
     return [theta1,theta2]
-
-s = SpaceAngle([1,10,30])
-print("ssss")
-print(s)
