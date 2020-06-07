@@ -28,7 +28,7 @@ def inverse():
     return [theta1,theta2]
 
 
-####计算空间角的
+####反解计算空间角的
 def SpaceAngle(coordinate):
     """
     计算空间角

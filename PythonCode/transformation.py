@@ -90,18 +90,44 @@ def transformSRendtoBRbase(Ps2obj,theta):
 #     str1 = xstr + "," + ystr+","+zstr+","+wstr+","+pstr+","+rstr
 #     data = str1.encode()
 #     conn.send(data)
+
 ##############################################################
+def transformPic2Cam(Ppicobj):
+    """
+    将图片坐标系（YY图像目标检测得到的图像坐标  转换为  相机坐标）
+    其中，核心是坐标转换矩阵（通过相机标定的到的参数）    MQQ的任务
+    Tpic2cam = [ 1  2  3  1
+                 5  6  7  8
+                 9  9  9  9
+                 0  0  0  1 ]
+    加上畸变系数，会更加复杂。
+    :param Ppicobj:图像坐标（YY任务）
+    :return:Pcamobj：相机坐标
+    """
+    Tpic2cam = mat([[1,2,3,4],
+                    [1,2,3,4],
+                    [2,3,4,5],
+                    [0,0,0,1]
+    ])
+    Pcamobj = Tpic2cam*Ppicobj
+    return Pcamobj
 
 def transformCam2SRend(Pcamobj):
     """
-    从相机坐标到小机械臂末端的坐标转换函数
-    固定参数：相机的内外参数
-    f:
 
+    Tcam2srend = [ 1  2  3  1
+                   5  6  7  8
+                   9  9  9  9
+                   0  0  0  1 ]
     :param Pcamobj: 物体在相机坐标系下的坐标
     :return: Psrendobj:物体在机械臂末端坐标系下的坐标
     """
-    Psrendobj = mat([1,1,1,1]).T
+    Tcam2srend = mat([[1,2,3,1],
+                      [2,3,4,1],
+                      [2,5,6,1],
+                      [0,0,0,1]]
+                     )
+    Psrendobj = Tcam2srend*Pcamobj
     return Psrendobj
 
 def transformSRend2SRbase(Psrendobj,theta):
@@ -111,6 +137,11 @@ def transformSRend2SRbase(Psrendobj,theta):
     d：
     l1：
     l2：
+    Tsrend2srbase = mat([[1,2,3,1],
+                        [2,3,4,1],
+                        [2,5,6,1],
+                        [0,0,0,1]]
+                        )
     :param Psrendobj: 物体在小机械臂末端坐标系下的坐标
     :param theta: 小机械臂的各个关节角，此处为二自由度（theta1，theta2）
     :return: Ps0obj：物体在小机械臂基坐标系下的坐标
@@ -139,6 +170,11 @@ def transformSRbase2BRbase(Ps0obj):
     xsmall:
     ysmall:
     zsmall:
+    Tsrbase2brbase = mat([[1,2,3,1],
+                        [2,3,4,1],
+                        [2,5,6,1],
+                        [0,0,0,1]]
+                        )
     :param Ps0obj: 物体在小机械臂基坐标系下的坐标
     :return:Pb0obj：物体在大机械臂“织女”基坐标系下的坐标
     """
