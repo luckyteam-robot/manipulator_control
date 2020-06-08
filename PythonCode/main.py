@@ -4,7 +4,6 @@ from inverse import *
 from communication import *
 from recognize import *
 from CameraCapture import *
-
 # 根据项目流程，链接各模块函数代码
 #### 1、控制相机拍照
 CameraCapture()

@@ -30,8 +30,8 @@ def tcptransmit(Pobj):
     conn.send(data)
     print("发送")
     print(Pobj)
-tcptransmit(mat([1,2,]
-                ))
+# tcptransmit(mat([1,2,]
+#                 ))
 def tcprecieve():
     """
     tcp通讯接受函数
