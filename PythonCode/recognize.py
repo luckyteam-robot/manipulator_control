@@ -1,7 +1,11 @@
 from numpy import *
-import detect
+# import detect
+# import os
 def recognize(type):
-    detect
+    # os.system('python detect.py')
+    # os.system('python main.py')
+    # os.popen('python /home/learngod/GitHub/manipulator_control/PythonCode/MaskRCNN-Recognize/detect.py')
+    import detect
     ordination = mat([0, 0, 1, 1]).T
     Str = " "
     if(type=="机械臂末端"):
@@ -10,3 +14,5 @@ def recognize(type):
         return ordination,Str
 
     return mat([0, 0, 1, 1]).T
+
+recognize("sss")
