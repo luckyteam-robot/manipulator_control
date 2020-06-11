@@ -1,2 +1,0 @@
-def fff():
-    print("sssss")
